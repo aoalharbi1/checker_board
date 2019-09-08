@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
+</head>
+
+<body>
+    <div id="container" style="width: {{width1}}; height: {{height1}}">
+        {% for i in range(rows): %}
+            {% if i % 2 == 0 %}
+                {% for num in range(cols): %} 
+                    {% if num % 2 == 0:%}
+                        <div class="box" style="background-color: {{color1}}"></div>
+                    {% elif num % 2 == 1: %}
+                        <div class="box" style="background-color: {{color2}}"></div>
+                    {% endif %}
+                {% endfor %}
+            {% elif i % 2 == 1 %}
+                {% for num in range(cols): %} 
+                    {% if num % 2 == 0:%}
+                        <div class="box" style="background-color: {{color2}}"></div>
+                    {% elif num % 2 == 1: %}
+                        <div class="box" style="background-color: {{color1}}"></div>   
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+</html>
